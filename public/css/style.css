@@ -1,116 +1,101 @@
-/* Reset styles */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Set up full height and font */
 html, body {
-  height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
-  overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
 }
 
-/* Center container */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10px;
+  padding: 20px;
 }
 
-/* Main chat wrapper */
+/* Chat container grows naturally */
 .chat-container {
   width: 100%;
   max-width: 600px;
-  height: 100svh; /* ✅ Modern height unit that accounts for mobile keyboard */
-  background: #ffffff;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  gap: 0;
+  padding: 10px;
 }
 
-/* Chat message area */
+/* Chat messages area grows as needed */
 #chat-box {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 70vh;
   overflow-y: auto;
-  padding: 16px;
-  background: #f9f9f9;
-  scroll-behavior: smooth;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-/* Individual message bubble */
 #chat-box div {
-  margin-bottom: 12px;
-  padding: 10px 14px;
   background: #dcf8c6;
+  padding: 10px 14px;
   border-radius: 8px;
   max-width: 80%;
-  word-wrap: break-word;
+  align-self: flex-start;
+  word-break: break-word;
   font-size: 15px;
   line-height: 1.4;
 }
 
-/* Form styling */
+/* Form area always sticks to bottom of container */
 #chat-form {
   display: flex;
   gap: 10px;
-  padding: 10px;
-  background: #fff;
-  border-top: 1px solid #ddd;
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
+  margin-top: auto;
 }
 
-/* Input styling */
 #msg {
   flex: 1;
   padding: 12px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
+  border-radius: 6px;
   outline: none;
 }
 
-/* Send button styling */
 button {
-  padding: 12px 18px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 8px;
+  background: #007bff;
   color: white;
-  font-size: 15px;
-  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background: #0056b3;
 }
 
-/* Mobile optimizations */
+/* Responsive: full width on mobile */
 @media (max-width: 600px) {
-  .chat-container {
-    border-radius: 0;
+  body {
+    padding: 10px;
   }
 
-  #chat-form {
-    flex-direction: column;
-    gap: 8px;
-    padding: 8px;
+  .chat-container {
+    border-radius: 0;
+    box-shadow: none;
   }
 
   #msg, button {
-    width: 100%;
-  }
-
-  #chat-box div {
-    max-width: 100%;
+    font-size: 15px;
   }
 }

@@ -5,14 +5,6 @@
   const msgInput = document.getElementById('msg');
   const chatBox = document.getElementById('chat-box');
 
-msgInput.addEventListener('focus', () => {
-  setTimeout(() => {
-    msgInput.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }, 300);
-});
-
-
   form.addEventListener('submit', e => {
     e.preventDefault();
     const msg = msgInput.value.trim();
@@ -28,5 +20,12 @@ msgInput.addEventListener('focus', () => {
     div.textContent = msg;
     chatBox.appendChild(div);
     chatBox.scrollTop = chatBox.scrollHeight;
+  });
+
+  // Ensure we scroll to latest message even on mobile when keyboard shows
+  msgInput.addEventListener('focus', () => {
+    setTimeout(() => {
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }, 300);
   });
 })();
