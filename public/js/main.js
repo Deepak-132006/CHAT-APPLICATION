@@ -4,19 +4,19 @@ const form = document.getElementById('chat-form');
 const msgInput = document.getElementById('msg');
 const chatBox = document.getElementById('chat-box');
 
-
 msgInput.addEventListener('focus', () => {
   setTimeout(() => {
     msgInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 300); // wait for keyboard to open
+  }, 300); // wait for keyboard to open (mobile-friendly)
 });
-
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  const msg = msgInput.value;
-  socket.emit('chatMessage', msg);
-  msgInput.value = '';
+  const msg = msgInput.value.trim();
+  if (msg) {
+    socket.emit('chatMessage', msg);
+    msgInput.value = '';
+  }
   msgInput.focus();
 });
 
