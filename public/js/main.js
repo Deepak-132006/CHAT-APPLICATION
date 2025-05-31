@@ -4,6 +4,14 @@ const form = document.getElementById('chat-form');
 const msgInput = document.getElementById('msg');
 const chatBox = document.getElementById('chat-box');
 
+
+msgInput.addEventListener('focus', () => {
+  setTimeout(() => {
+    msgInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 300); // wait for keyboard to open
+});
+
+
 form.addEventListener('submit', e => {
   e.preventDefault();
   const msg = msgInput.value;
