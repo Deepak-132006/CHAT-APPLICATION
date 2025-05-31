@@ -1,35 +1,40 @@
-/* Reset & Base Styles */
+/* Reset styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f4f4;
-  height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-/* Chat Container */
-.chat-container {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px;
+/* Set up full height and font */
+html, body {
   height: 100%;
-  max-height: 95dvh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
   overflow: hidden;
 }
 
-/* Chat Messages */
+/* Center container */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+/* Main chat wrapper */
+.chat-container {
+  width: 100%;
+  max-width: 600px;
+  height: 100svh; /* ✅ Modern height unit that accounts for mobile keyboard */
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Chat message area */
 #chat-box {
   flex: 1;
   overflow-y: auto;
@@ -38,6 +43,7 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Individual message bubble */
 #chat-box div {
   margin-bottom: 12px;
   padding: 10px 14px;
@@ -49,18 +55,19 @@ body {
   line-height: 1.4;
 }
 
-/* Input Area */
+/* Form styling */
 #chat-form {
   display: flex;
   gap: 10px;
   padding: 10px;
-  background: #ffffff;
-  border-top: 1px solid #e0e0e0;
+  background: #fff;
+  border-top: 1px solid #ddd;
   position: sticky;
   bottom: 0;
   z-index: 10;
 }
 
+/* Input styling */
 #msg {
   flex: 1;
   padding: 12px;
@@ -70,6 +77,7 @@ body {
   outline: none;
 }
 
+/* Send button styling */
 button {
   padding: 12px 18px;
   background-color: #007bff;
@@ -77,6 +85,7 @@ button {
   border-radius: 8px;
   color: white;
   font-size: 15px;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -85,20 +94,19 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Mobile-Friendly Layout */
+/* Mobile optimizations */
 @media (max-width: 600px) {
   .chat-container {
     border-radius: 0;
-    height: 100dvh;
-    max-height: 100dvh;
   }
 
   #chat-form {
     flex-direction: column;
     gap: 8px;
+    padding: 8px;
   }
 
-  button {
+  #msg, button {
     width: 100%;
   }
 

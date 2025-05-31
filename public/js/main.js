@@ -5,11 +5,13 @@
   const msgInput = document.getElementById('msg');
   const chatBox = document.getElementById('chat-box');
 
-  msgInput.addEventListener('focus', () => {
-    setTimeout(() => {
-      msgInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 300); // mobile-friendly scroll
-  });
+msgInput.addEventListener('focus', () => {
+  setTimeout(() => {
+    msgInput.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 300);
+});
+
 
   form.addEventListener('submit', e => {
     e.preventDefault();
