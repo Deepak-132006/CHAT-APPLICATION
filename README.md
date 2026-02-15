@@ -23,8 +23,7 @@ This project enables multiple users to join and chat instantly through web socke
 ---
 
 ## 🚀 Live Demo
-🔗 [View Project](#)  
-*(Add your deployed link — e.g., Render, Railway, or local demo video link)*
+🔗 [View Project](https://chat-application-db51.onrender.com/)  
 
 ---
 
