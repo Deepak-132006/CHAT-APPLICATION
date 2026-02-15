@@ -2,7 +2,7 @@
   "name": "chat-app-clone",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -12,7 +12,7 @@
     "socket.io": "^4.8.1"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "build": "echo \"No build step\"",
     "test": "echo \"No tests specified\" && exit 0"
   }
